@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Questions {
     private String question;
-    private ArrayList<String> answers = new ArrayList<>();
+    private Answer answers;
 
-    public Questions(String question, ArrayList<String> answers) {
+    public Questions(String question, Answer answers) {
         this.question = question;
         this.answers = answers;
     }
@@ -19,12 +19,11 @@ public class Questions {
         this.question = question;
     }
 
-    public ArrayList<String> getAnswers() {
+    public Answer getAnswers() {
         return answers;
     }
 
-    public void setAnswers(ArrayList<String> answers) {
+    public void setAnswers(Answer answers) {
         this.answers = answers;
     }
-
 }
