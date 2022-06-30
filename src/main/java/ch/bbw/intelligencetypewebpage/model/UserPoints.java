@@ -25,7 +25,7 @@ public class UserPoints {
                 intrapersonal += number;
                 break;
             case "interpersonal":
-                intrapersonal += number;
+                interpersonal += number;
                 break;
             case "natur":
                 naturally += number;
