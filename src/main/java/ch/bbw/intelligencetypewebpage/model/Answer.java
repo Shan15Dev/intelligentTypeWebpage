@@ -1,29 +1,27 @@
 package ch.bbw.intelligencetypewebpage.model;
 
-import java.util.ArrayList;
-
 public class Answer {
-    private ArrayList<String> answers;
-    private ArrayList<String> type;
+    private String[] answers;
+    private String[] type;
 
-    public Answer(ArrayList<String> answers, ArrayList<String> type) {
+    public Answer(String[] answers, String[] type) {
         this.answers = answers;
         this.type = type;
     }
 
-    public ArrayList<String> getAnswers() {
+    public String[] getAnswers() {
         return answers;
     }
 
-    public void setAnswers(ArrayList<String> answers) {
+    public void setAnswers(String[] answers) {
         this.answers = answers;
     }
 
-    public ArrayList<String> getType() {
+    public String[] getType() {
         return type;
     }
 
-    public void setType(ArrayList<String> type) {
+    public void setType(String[] type) {
         this.type = type;
     }
 }
