@@ -1,4 +1,4 @@
-package ch.bbw.intelligencetypewebpage.getstarted;
+package ch.bbw.intelligencetypewebpage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
