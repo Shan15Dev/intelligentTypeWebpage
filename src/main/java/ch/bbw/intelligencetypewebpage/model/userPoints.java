@@ -9,25 +9,25 @@ public class userPoints {
     private int interpersonal = 0;
     private int natuerlich = 0;
 
-    public void incement(String type){
+    public void incement(String type, int number){
         switch (type){
             case "musik":
-                musiksikalisch++;
+                musiksikalisch += number;
                 break;
             case "mathe":
-                mathematisch++;
+                mathematisch+= number;
                 break;
             case "koerper":
-                koerperlich++;
+                koerperlich+= number;
                 break;
             case "intrapersonal":
-                intrapersonal++;
+                intrapersonal+= number;
                 break;
             case "interpersonal":
-                intrapersonal++;
+                intrapersonal+= number;
                 break;
             case "natur":
-                natuerlich++;
+                natuerlich+= number;
                 break;
         }
     }
