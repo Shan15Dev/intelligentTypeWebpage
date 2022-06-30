@@ -40,15 +40,15 @@ public class MainController {
     @PostMapping("")
     public String homepost(Model model, @ModelAttribute UserPoints userpoints,
             @RequestParam(value = "hiddeninput", required = true) String answernumber) {
-        userpoints.increment(questions.get(index).getAnswers().getType()[0], 1);
+        userpoints.increment(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)], 1);
         System.out.println("----Postmapping");
-        System.out.println(answernumber);
         System.out.println(userpoints.getMathematical());
         System.out.println("----Postmapping");
-        // if (questions.size() == ++index) { // 1 == ++0 True
-        // System.out.println("Exit");
-        // }
         model.addAttribute("userpoints", userpoints);
+        if (questions.size() == ++index) { // 1 == ++0 True
+            System.out.println("Exit");
+            return "result";
+        }
         model.addAttribute("question", questions.get(index));
         return "index";
     }
