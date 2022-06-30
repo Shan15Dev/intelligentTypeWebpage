@@ -31,6 +31,9 @@ public class UserPoints {
                 naturally += number;
                 break;
         }
+        System.out.println("--- Mathematical: (in increment)");
+        System.out.println(mathematical);
+        System.out.println("--- Mathematical: (in increment)");
     }
 
     public int getMusical() {
