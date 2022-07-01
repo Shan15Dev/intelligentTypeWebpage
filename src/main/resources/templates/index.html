@@ -10,6 +10,9 @@
         <h3 th:text="${question.getQuestion()}"></h3>
 
         <button th:text="${question.getAnswers().getAnswers()[0]}" onclick="document.getElementById('hiddeninput').value = '0'" type="button" ></button>
+        <button th:text="${question.getAnswers().getAnswers()[1]}" onclick="document.getElementById('hiddeninput').value = '1'" type="button" ></button>
+        <button th:text="${question.getAnswers().getAnswers()[2]}" onclick="document.getElementById('hiddeninput').value = '2'" type="button" ></button>
+        <button th:text="${question.getAnswers().getAnswers()[3]}" onclick="document.getElementById('hiddeninput').value = '3'" type="button" ></button>
         <input type="hidden" id="hiddeninput" name="hiddeninput" value="asdf">
         <button type="submit">Submit</button>
     </form>

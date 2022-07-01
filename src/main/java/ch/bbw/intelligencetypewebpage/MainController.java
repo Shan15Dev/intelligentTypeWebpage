@@ -31,6 +31,7 @@ public class MainController {
 
     @GetMapping("")
     public String home(Model model) {
+        index = 0;
         System.out.println("GetMapping");
         model.addAttribute("question", questions.get(index));
         model.addAttribute("userpoints", new UserPoints());
