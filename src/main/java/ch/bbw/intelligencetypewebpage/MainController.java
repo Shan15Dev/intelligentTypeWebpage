@@ -22,11 +22,15 @@ public class MainController {
 
     private ArrayList<Questions> questions = new ArrayList<Questions>();
     private Questions q1 = new Questions("Frage 1?",
-            new Answer(new String[] { "a", "b", "c", "d" }, new String[] { "mathe", "mathe", "mathe", "mathe" }));
+            new Answer(new String[] { "a", "b", "c", "d" }, new String[] { "mathe", "intrapersonal", "mathe", "mathe" }));
+    private Questions q2 = new Questions("Frage 2?",
+            new Answer(new String[] { "a", "b", "c", "d" }, new String[] { "koerper", "mathe", "mathe", "mathe" }));
     private int index = 0;
+    private UserPoints userPoints = new UserPoints();
 
     public MainController() {
         questions.add(q1);
+        questions.add(q2);
     }
 
     @GetMapping("")
@@ -34,20 +38,21 @@ public class MainController {
         index = 0;
         System.out.println("GetMapping");
         model.addAttribute("question", questions.get(index));
-        model.addAttribute("userpoints", new UserPoints());
+        model.addAttribute("userpoints", userPoints);
         return "index";
     }
 
     @PostMapping("")
     public String homepost(Model model, @ModelAttribute UserPoints userpoints,
             @RequestParam(value = "hiddeninput", required = true) String answernumber) {
-        userpoints.increment(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)], 1);
-        System.out.println("----Postmapping");
-        System.out.println(userpoints.getMathematical());
+        UserPoints.increment(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)], 1);
+        System.out.println(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)]);
+        System.out.println(UserPoints.getMathematical());
         System.out.println("----Postmapping");
         model.addAttribute("userpoints", userpoints);
-        if (questions.size() == ++index) { // 1 == ++0 True
+        if (questions.size() == ++index) {
             System.out.println("Exit");
+            model.addAttribute("results", userpoints);
             return "result";
         }
         model.addAttribute("question", questions.get(index));

@@ -1,16 +1,16 @@
 package ch.bbw.intelligencetypewebpage.model;
 
 public class UserPoints {
-    private int musical = 0;
-    private int mathematical = 0;
-    private int spatial = 0;
-    private int bodily = 0;
-    private int intrapersonal = 0;
-    private int interpersonal = 0;
-    private int naturally = 0;
+    private static int musical = 0;
+    private static int mathematical = 0;
+    private static int spatial = 0;
+    private static int bodily = 0;
+    private static int intrapersonal = 0;
+    private static int interpersonal = 0;
+    private static int naturally = 0;
 
     // Löschen im finalen Projekt
-    public void increment(String type, int number) {
+    public static void increment(String type, int number) {
         switch (type) {
             case "musik":
                 musical += number;
@@ -31,64 +31,33 @@ public class UserPoints {
                 naturally += number;
                 break;
         }
-        System.out.println("--- Mathematical: (in increment)");
-        System.out.println(mathematical);
-        System.out.println("--- Mathematical: (in increment)");
     }
 
-    public int getMusical() {
+    public static int getMusical() {
         return musical;
     }
 
-    public void setMusical(int musical) {
-        this.musical = musical;
-    }
-
-    public int getMathematical() {
+    public static int getMathematical() {
         return mathematical;
     }
 
-    public void setMathematical(int mathematical) {
-        this.mathematical = mathematical;
-    }
-
-    public int getSpatial() {
+    public static int getSpatial() {
         return spatial;
     }
 
-    public void setSpatial(int spatial) {
-        this.spatial = spatial;
-    }
-
-    public int getBodily() {
+    public static int getBodily() {
         return bodily;
     }
 
-    public void setBodily(int bodily) {
-        this.bodily = bodily;
-    }
-
-    public int getIntrapersonal() {
+    public static int getIntrapersonal() {
         return intrapersonal;
     }
 
-    public void setIntrapersonal(int intrapersonal) {
-        this.intrapersonal = intrapersonal;
-    }
-
-    public int getInterpersonal() {
+    public static int getInterpersonal() {
         return interpersonal;
     }
 
-    public void setInterpersonal(int interpersonal) {
-        this.interpersonal = interpersonal;
-    }
-
-    public int getNaturally() {
+    public static int getNaturally() {
         return naturally;
-    }
-
-    public void setNaturally(int naturally) {
-        this.naturally = naturally;
     }
 }
