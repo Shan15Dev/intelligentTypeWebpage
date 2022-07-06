@@ -36,6 +36,7 @@ public class MainController {
     @GetMapping("")
     public String home(Model model) {
         index = 0;
+        UserPoints.setScoresZero();
         System.out.println("GetMapping");
         model.addAttribute("question", questions.get(index));
         model.addAttribute("userpoints", userPoints);
@@ -45,14 +46,14 @@ public class MainController {
     @PostMapping("")
     public String homepost(Model model, @ModelAttribute UserPoints userpoints,
             @RequestParam(value = "hiddeninput", required = true) String answernumber) {
-        UserPoints.increment(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)], 1);
+            UserPoints.increment(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)], 1);
         System.out.println(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)]);
         System.out.println(UserPoints.getMathematical());
         System.out.println("----Postmapping");
         model.addAttribute("userpoints", userpoints);
         if (questions.size() == ++index) {
             System.out.println("Exit");
-            model.addAttribute("results", userpoints);
+            model.addAttribute("intelligenceTypes", UserPoints.getIntelligenceType());
             return "result";
         }
         model.addAttribute("question", questions.get(index));
