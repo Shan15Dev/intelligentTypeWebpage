@@ -162,16 +162,17 @@ public class MainController {
     @PostMapping("")
     public String homepost(Model model, @ModelAttribute UserPoints userpoints,
             @RequestParam(value = "hiddeninput", required = true) String answernumber) {
-        UserPoints.increment(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)], 1);
-        System.out.println(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)]);
-        System.out.println(UserPoints.getMathematical());
-        System.out.println("----Postmapping");
-        model.addAttribute("userpoints", userpoints);
-        if (questions.size() == ++index) {
-            System.out.println("Exit");
-            model.addAttribute("intelligenceTypes", UserPoints.getIntelligenceType());
-            return "result";
+
+        if (!answernumber.equals("error")) {
+            UserPoints.increment(questions.get(index).getAnswers().getType()[Integer.parseInt(answernumber)], 1);
+            model.addAttribute("userpoints", userpoints);
+            if (questions.size() == ++index) {
+                System.out.println("Exit");
+                model.addAttribute("intelligenceTypes", UserPoints.getIntelligenceType());
+                return "result";
+            }
         }
+
         model.addAttribute("question", questions.get(index));
         return "index";
     }
