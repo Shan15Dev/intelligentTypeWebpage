@@ -12,17 +12,23 @@ public class UserPoints {
     private static int intrapersonal = 0;
     private static int interpersonal = 0;
     private static int naturally = 0;
-    private static String[] types = new String[] {"Musikalisch", "Mathematisch", "Räumlich", "Körperlich", "Intrapersonal", "Interpersonal", "Natur"};
+    private static int linguistic = 0;
+    private static String[] types = new String[] { "Musikalisch", "Mathematisch", "Räumlich", "Körperlich",
+            "Intrapersonal", "Interpersonal", "Natur", "Linguistisch" };
+
     // Löschen im finalen Projekt
     public static void increment(String type, int number) {
         switch (type) {
-            case "musik":
+            case "musical":
                 musical += number;
                 break;
-            case "mathe":
+            case "mathematical":
                 mathematical += number;
                 break;
-            case "koerper":
+            case "spatial":
+                spatial += number;
+                break;
+            case "bodily":
                 bodily += number;
                 break;
             case "intrapersonal":
@@ -31,8 +37,11 @@ public class UserPoints {
             case "interpersonal":
                 interpersonal += number;
                 break;
-            case "natur":
+            case "naturally":
                 naturally += number;
+                break;
+            case "linguistic":
+                linguistic += number;
                 break;
         }
     }
@@ -61,31 +70,41 @@ public class UserPoints {
         return interpersonal;
     }
 
+    public static int getLinguistic() {
+        return linguistic;
+    }
+
+    public static void setLinguistic(int linguistic) {
+        UserPoints.linguistic = linguistic;
+    }
+
     public static int getNaturally() {
         return naturally;
     }
 
-    public static List<String> getIntelligenceType(){
+    public static List<String> getIntelligenceType() {
         int maxNum = 0;
-        int[] scores = new int[] {musical, mathematical, spatial, bodily, intrapersonal, interpersonal, naturally};
+        int[] scores = new int[] { musical, mathematical, spatial, bodily, intrapersonal, interpersonal, naturally,
+                linguistic };
 
         List<String> yourResult = new ArrayList<>();
 
         for (int i = 0; i < scores.length; i++) {
-            if (scores[i] > maxNum){
+            if (scores[i] > maxNum) {
                 maxNum = scores[i];
             }
         }
 
         for (int i = 0; i < scores.length; i++) {
-            if (scores[i] == maxNum){
+            if (scores[i] == maxNum) {
                 yourResult.add(types[i]);
             }
         }
 
         return yourResult;
     }
-    public static void setScoresZero(){
+
+    public static void setScoresZero() {
         musical = 0;
         mathematical = 0;
         spatial = 0;
@@ -93,5 +112,6 @@ public class UserPoints {
         intrapersonal = 0;
         interpersonal = 0;
         naturally = 0;
+        linguistic = 0;
     }
 }
